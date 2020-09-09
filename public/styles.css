@@ -1,10 +1,10 @@
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
 }
 
 body {
+  padding: 0;
+  margin: 0;
   background: #eee;
   margin:auto; 
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
@@ -65,8 +65,8 @@ header h1 {
 
 form.create-note {
   position: relative;
-  width: 480px;
-  margin: 30px auto 20px auto;
+  max-width: 480px;
+  margin: 30px auto 20px;
   background: #fff;
   padding: 15px;
   border-radius: 7px;
@@ -99,4 +99,15 @@ form.create-note button {
 
 .formDiv {
   margin-bottom: 70px;
+}
+
+@media screen and (max-width: 510px){
+  form.create-note{
+    margin: 30px 10px 20px;
+    padding: 10px 15px;
+  }
+
+  header{
+    padding: 13px 25px;
+  }
 }

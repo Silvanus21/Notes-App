@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
-  const [noteArray, setNoteArray] = useState([]);
+  const [noteArray, setNoteArray] = useState(() => {
+    const localStorageData = localStorage.getItem("notes");
+    return localStorageData ? JSON.parse(localStorageData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(noteArray));
+  }, [noteArray])
 
   function addNote(note) {
     if (note.title.trim() !== "" && note.content.trim() !== "") {
